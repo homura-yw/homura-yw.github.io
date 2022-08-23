@@ -132,6 +132,15 @@
             2022/8/23
         </span>
         
+        <span class="category">
+            <a href="/categories/算法/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                算法
+            </a>
+        </span>
+        
         
     </div>
     <div class="content" v-pre>
@@ -217,8 +226,9 @@
 <p>非常典型的while死循环</p>
 <h1 id="游戏AI内核的模块"><a href="#游戏AI内核的模块" class="headerlink" title="游戏AI内核的模块"></a>游戏AI内核的模块</h1><p>在上面，有一个非常关键的函数</p>
 <blockquote>
-<p>void putPiece(char qipan[][3])<br>这个函数的作用便是，传入棋盘的数组后，将决定走下一步棋的位置，让我们看看在”井.h”中的putPiece函数是怎么写的：</p>
+<p>void putPiece(char qipan[][3])</p>
 </blockquote>
+<p>这个函数的作用便是，传入棋盘的数组后，将决定走下一步棋的位置，让我们看看在”井.h”中的putPiece函数是怎么写的：</p>
 <pre><code>void putPiece(char qipan[][3]) &#123;
     void Copy(char qipan[][3], char Qipan[][3]);
     int stepin(char qipan[][3], int cnt, int step, int W);
