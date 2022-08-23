@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>终の空</title>
+        <title>由一道算法题所启发的井字棋游戏 | 终の空</title>
         <meta name="author" content="水無月-空">
         <meta name="description" content="">
         <meta name="keywords" content="">
@@ -119,49 +119,23 @@
 </nav>
                     </div>
                     <div id="main">
-                        <div id="home-head">
-    <div id="home-background" style="background-image: url(/images/background.jpg)"></div>
-    
-    <div id="home-info" class="home-info" @click="home_click">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>终の空</h1>
-                <h3>homura-yw</h3>
-                <h5></h5>
-            </div>
-        </span>
+                        
+<div class="article">
+    <div>
+        <h1>由一道算法题所启发的井字棋游戏 </h1>
     </div>
-    
-</div>
-
-<div id="home-posts-wrap" class=>
-    <div id="home-posts">
-        <div id="posts">
-            
-
-<div class="post">
-    <a href="/2022/08/23/由一道算法题所启发的井字棋游戏/">
-        <h2>
-            由一道算法题所启发的井字棋游戏
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
             2022/8/23
         </span>
+        
+        
     </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h1><ul>
+    <div class="content" v-pre>
+        <h1 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h1><ul>
 <li>几个月前参加学校举办的算法比赛时，遇见过一个难度颇为不易的题目，题目大致内容是通过输入一个井字棋的棋盘，然后求某方要赢的情况的种数。虽然井字棋本身非常的简单，但要用程序模拟出下棋的情况总数，终归还是难到我了。虽然但是，我通过不断递归遍历的算法，终究还是把这道题做出来了。</li>
 <li>这道题用递归能适用，很大一部分在于，井字棋本身是非常简单的，总共不过3*3=9个棋子，考虑到棋盘上已经有棋子了，所以每种情况递归的层数都不会超出8，这些为递归提供了条件。</li>
 <li>将这道题水过去后，我一直感觉，本题在某种程度上几乎就是让我写了一个预测所有情况的AI，将所有的情况综合考虑，即可得出，在走 剩余格子 中的一个后，所获胜的种数，所失败的种数以及评价的种数，进而可以求得走这一步获胜的概率！而只要每一步都走获胜概率最高的一步，这不就形成了一个可以自己下棋的AI了吗？理论成立，实践的种子也埋在了我的心里，也正是这样促使我完成一个简单的井字棋游戏。<h1 id="建立一个游戏的操作框架"><a href="#建立一个游戏的操作框架" class="headerlink" title="建立一个游戏的操作框架"></a>建立一个游戏的操作框架</h1>为了减少程序的耦合度，我将程序分为两个模块，一个是游戏本身的操作框架模块，另一个是游戏的AI内核模块（说人话就是这一模块是来选择走哪一步棋的）。</li>
@@ -393,67 +367,6 @@
 </ul>
 <p>这是我的第一篇博客，能被你看见是我的荣幸喵!<br><img src="/2022/08/23/%E7%94%B1%E4%B8%80%E9%81%93%E7%AE%97%E6%B3%95%E9%A2%98%E6%89%80%E5%90%AF%E5%8F%91%E7%9A%84%E4%BA%95%E5%AD%97%E6%A3%8B%E6%B8%B8%E6%88%8F/hello.jpg"></p>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/08/23/由一道算法题所启发的井字棋游戏/" class="go-post">
-        阅读全文
-    </a>
-</div>
-
-             
-<div class="page-current">
-    <div class="prev">
-        
-    </div>
-    <div class="page-index">
-        
-        <span class="current">
-            1
-        </span>
-        
-    </div>
-    <div class="next">
-        
-    </div>
-</div>
-        </div>
-    </div>
-    
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style" style="width: 300px">
-        <div class="avatar">
-            <img src="/images/avatar.jpg " alt="avatar">
-        </div>
-        <div class="name">
-            水無月-空
-        </div>
-        <div class="descriptions">
-            
-            <div class="description">
-                Description...
-            </div>
-            
-        </div>
-        <div class="icon-links">
-            
-            <span class="icon-link">
-                <a target="_blank" rel="noopener" href="https://github.com/argvchs">
-                    <i class="fa-brands fa-github fa-fw"></i>
-                </a>
-            </span>
-            
-        </div>
-        <div class="friend-links">
-            
-        </div>
-    </div>
-</div>
     </div>
     
 </div>
