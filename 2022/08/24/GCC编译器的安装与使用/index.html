@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Archives | 终の空</title>
+        <title>GCC编译器的安装与使用 | 终の空</title>
         <meta name="author" content="水無月-空">
         <meta name="description" content="">
         <meta name="keywords" content="">
@@ -120,52 +120,52 @@
                     </div>
                     <div id="main">
                         
-<div id="archives">
-    
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2022/8/24</div>
-            <a href="/2022/08/24/GCC编译器的安装与使用/">
-                <h3>GCC编译器的安装与使用</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/C-C/">
-                        <span class="icon">
-                            <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                        </span>
-                        C\C++
-                    </a>
-                </span>
-                
-                
-            </div>
-        </div>
+<div class="article">
+    <div>
+        <h1>GCC编译器的安装与使用 </h1>
     </div>
-    
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2022/8/23</div>
-            <a href="/2022/08/23/由一道算法题所启发的井字棋游戏/">
-                <h3>由一道算法题所启发的井字棋游戏</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/算法/">
-                        <span class="icon">
-                            <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                        </span>
-                        算法
-                    </a>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+        
+        <span class="category">
+            <a href="/categories/C-C/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
                 </span>
-                
-                
-            </div>
-        </div>
+                C\C++
+            </a>
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h1><p>由于电脑内存有点不够用了，所以就把visual studio 2022卸载了，但需要编写c++的时候，还是需要一个编译器的，vs这种航母级的IDE对于我目前的水平来说，还是过于庞大，很多功能完全用不上，故决定下载安装一个GCC编译器来编译我自己写的C++代码。</p>
+<h1 id="GCC简介"><a href="#GCC简介" class="headerlink" title="GCC简介"></a>GCC简介</h1><p>以下摘自百度百科</p>
+<blockquote>
+<p>GCC（GNU Compiler Collection，GNU编译器套件）是由GNU开发的编程语言译器。GNU编译器套件包括C、C++、 Objective-C、 Fortran、Java、Ada和Go语言前端，也包括了这些语言的库（如libstdc++，libgcj等。） GCC的初衷是为GNU操作系统专门编写的一款编译器。GNU系统是彻底的自由软件。此处，“自由”的含义是它尊重用户的自由。</p>
+</blockquote>
+<h1 id="GCC的下载安装"><a href="#GCC的下载安装" class="headerlink" title="GCC的下载安装"></a>GCC的下载安装</h1><p>打开<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw/">MinGW的官网</a>下载该软件<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_212214.png"><br>下载后就无脑点击安装<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_202230.png">无脑next。</p>
+<h2 id="不要安装在C盘！"><a href="#不要安装在C盘！" class="headerlink" title="不要安装在C盘！"></a>不要安装在C盘！</h2><p>之后打开这个软件，右键单击mingw-gcc-g++-bin，选择”Make for installation”，之后点击右上角的Installation,选择”Apply changes”，便开始下载<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_203203.png"><br>点击Apply<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_203252.png"></p>
+<p>反正至少我下载的这段时间真的有点长<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_203411.png"></p>
+<p>下载完成后接下来就是配置GCC的环境变量。</p>
+<blockquote>
+<p>右键我的电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量</p>
+</blockquote>
+<p>如图配置你的变量地址<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_213528.png"><br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_213552.png"><br>这几步都是正常步骤啦，变量地址就是你的GCC编译器的根目录。</p>
+<p>最后来到命令行窗口来检验配置是否成功<br>输入</p>
+<pre><code>gcc -v
+</code></pre>
+<p>或者</p>
+<pre><code>g++ -v
+</code></pre>
+<p>来检验是否安装正确，出现以下内容就代表安装配置成功了<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_214326.png"></p>
+<h1 id="GCC编译器的使用"><a href="#GCC编译器的使用" class="headerlink" title="GCC编译器的使用"></a>GCC编译器的使用</h1><p>(暂未更新，等一等后续喵)</p>
+
     </div>
     
 </div>
