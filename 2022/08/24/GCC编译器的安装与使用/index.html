@@ -164,7 +164,135 @@
 <pre><code>g++ -v
 </code></pre>
 <p>来检验是否安装正确，出现以下内容就代表安装配置成功了<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220824_214326.png"></p>
-<h1 id="GCC编译器的使用"><a href="#GCC编译器的使用" class="headerlink" title="GCC编译器的使用"></a>GCC编译器的使用</h1><p>(暂未更新，等一等后续喵)</p>
+<h1 id="GCC编译器的使用"><a href="#GCC编译器的使用" class="headerlink" title="GCC编译器的使用"></a>GCC编译器的使用</h1><p>由于这一段我不是很熟悉，如果有出错，可以通过about中的联系方式来指出我的问题。</p>
+<p>C/C++的编译步骤分为</p>
+<blockquote>
+<p>预处理-&gt;编译-&gt;汇编-&gt;链接</p>
+</blockquote>
+<p><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/d5311d1d425a4dadd0c9b04e114faa5a.png"></p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>预处理是将所有的.c,.cpp扩展名的文件转化为.i扩展名的文件。</p>
+<p>预处理的目的是处理程序中的预处理命令，预处理命令均是以“#”开头的语句，如：</p>
+<ul>
+<li>include</li>
+<li>define</li>
+<li>ifdef</li>
+<li>ifndef</li>
+</ul>
+<p>此外，还会自动删除程序中的注释，当然，这自不比多说。</p>
+<p>可在终端输入命令</p>
+<pre><code>gcc -E hello.c -o hello.i
+</code></pre>
+<p>将其转化为预编译文件。这里可以做个示范，我们写一个简单的输出”hello world”的c语言程序</p>
+<pre><code>//文件名为hello.c
+#include &lt;stdio.h&gt;
+
+int main()
+&#123;
+    printf(&quot;hello world&quot;);
+    return 0;
+&#125;
+</code></pre>
+<p>预编译后的程序是这样的<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220825_190724.png" alt="说实话我属实看不懂"></p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译就是把C/C++的预编译文件转变为汇编语言代码，其扩展名为.s</p>
+<p>（4）链接<br>在命令行内输入</p>
+<pre><code>gcc -S hello.i -o hello.s
+</code></pre>
+<p>之后我们的代码生成的汇编代码是这样的</p>
+<pre><code>    .file    &quot;hello.c&quot;
+    .def    ___main;    .scl    2;    .type    32;    .endef
+    .section .rdata,&quot;dr&quot;
+LC0:
+    .ascii &quot;hello world\0&quot;
+    .text
+    .globl    _main
+    .def    _main;    .scl    2;    .type    32;    .endef
+_main:
+LFB10:
+    .cfi_startproc
+    pushl    %ebp
+    .cfi_def_cfa_offset 8
+    .cfi_offset 5, -8
+    movl    %esp, %ebp
+    .cfi_def_cfa_register 5
+    andl    $-16, %esp
+    subl    $16, %esp
+    call    ___main
+    movl    $LC0, (%esp)
+    call    _printf
+    movl    $0, %eax
+    leave
+    .cfi_restore 5
+    .cfi_def_cfa 4, 4
+    ret
+    .cfi_endproc
+LFE10:
+    .ident    &quot;GCC: (MinGW.org GCC-6.3.0-1) 6.3.0&quot;
+    .def    _printf;    .scl    2;    .type    32;    .endef
+</code></pre>
+<h2 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h2><p>到了汇编这一步，就是将我们的汇编代码转变为二进制机器码文件。</p>
+<blockquote>
+<p>汇编就是将第二步输出的汇编代码翻译成符合一定格式的机器代码，在Linux系统上一般表现为ELF目标文件(OBJ文件)。“反汇编”是指将机器代码转换为汇编代码，这在调试程序时常常用到。</p>
+</blockquote>
+<p>（4）链接</p>
+<p>在命令行输入命令</p>
+<pre><code>gcc -c hello.s -o hello.o
+</code></pre>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>链接这一步我就不是很熟悉了，直接摘要csdn上的一些博客原文</p>
+<blockquote>
+<blockquote>
+<p>链接就是将上步生成的OBJ文件和系统库的OBJ文件、库文件链接起来，最终生成了可以在特定平台运行的可执行文件。</p>
+</blockquote>
+</blockquote>
+<p>其中，Windows系统的可执行文件就是扩展名为.exe的文件。</p>
+<p>在命令行中输入</p>
+<pre><code>gcc hello.o -o &lt;filename&gt;
+</code></pre>
+<p>即可生成可执行文件</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>有没有一种方式，可以直接将c/c++文件一步到位呢？其实很简单，直接输入命令</p>
+<pre><code>gcc hello.c -o &lt;filename&gt;
+</code></pre>
+<p>就直接将源文件转化为可执行文件。但是这样做，包括之前一步一步来的做法，都有一个坏处，就是当源文件出问题时，编译不会成功，也不会有任何提示，要解决办法也很简单，将上个命令替换为</p>
+<pre><code>gcc -Wall hello.c -o &lt;filename&gt;
+</code></pre>
+<p>这个Wall不是指墙，而是指W(Warning)+all(进行所有的流程),当然不必过于纠结这个问题。<br>那假如程序有问题，提示是怎样的呢？例如我们直接将程序修改一下：</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+&#123;
+    printf(&quot;hello world&quot;,4);
+    return 0;
+&#125;
+</code></pre>
+<p>结果为<br><img src="/2022/08/24/GCC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/Quicker_20220825_193630.png"></p>
+<h1 id="命令总结"><a href="#命令总结" class="headerlink" title="命令总结"></a>命令总结</h1><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-v</td>
+<td>查看编译器的版本</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>指定输出文件名</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>只预编译，不会编译，汇编，链接</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>只运行到编译，不会汇编，链接</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>编译和汇编,不会链接</td>
+</tr>
+</tbody></table>
+<p>以上就是我目前对于GCC编译器用法的理解，请多指正。</p>
 
     </div>
     
